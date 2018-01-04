@@ -65,9 +65,9 @@ sessionStorage
     Accessibility — Same tab
 
 * Describe the difference between `<script>`, `<script async>` and `<script defer>`.
--> <script> stops rendering process, and download and run a script.
-<script async> don't stop rendering process while asynchronously downloading a script. When finishing download, it stops rendering and runs the script.
-<script defer> don't stop rendering process while asynchronously downloading a script. When finished rendering, it runs the script. A deferred script must not contain document.write.
+-> `<script>` stops rendering process, and download and run a script.
+`<script async>` don't stop rendering process while asynchronously downloading a script. When finishing download, it stops rendering and runs the script.
+`<script defer>` don't stop rendering process while asynchronously downloading a script. When finished rendering, it runs the script. A deferred script must not contain document.write.
 Note: The async and defer attrib­utes are ignored for scripts that have no src attribute.
 
 * Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
@@ -78,4 +78,4 @@ Downloading the scripts at the bottom will allow the HTML to be parsed and displ
 * What is progressive rendering?
 -> Progressive rendering is the name given to techniques used to improve performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible. This can be done asynchronously with different components being loaded as they finish. A HTTP response is flushed multiple times, a browser doesn't wait until the whole content is loaded and renders each part earlier.
 
-
+* What are web-workers in HTML5 ??
