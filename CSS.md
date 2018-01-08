@@ -70,5 +70,22 @@
 
     Requires tools for preprocessing. Re-compilation time can be slow.
 
-* Describe pseudo-elements and discuss what they are used for.
-->  
+* What's the difference between a relative, fixed, absolute and statically positioned element?
+->  A positioned element is an element whose computed position value is either relative, absolute, fixed, or sticky.
+    A relatively positioned element is an element whose computed position value is relative. The top and bottom properties specify the vertical offset from its normal position; the left and right properties specify the horizontal offset.
+    An absolutely positioned element is an element whose computed position value is absolute or fixed. The top, right, bottom, and left properties specify offsets from the edges of the element's containing block. (The containing block is the ancestor to which the element is relatively positioned.)
+    A stickily positioned element is an element whose computed position value is sticky. It's treated as relatively positioned until its containing block crosses a specified threshold, at which point it is treated as fixed.
+
+    Fixed: The element is removed from the normal document flow; no space is created for the element in the page layout. Instead, it is positioned relative to the screen's viewport and doesn't move when scrolled. Its final position is determined by the values of top, right, bottom, and left. This value always creates a new stacking context. When an ancestor has the transform or perspective property set to something other than none, that ancestor is used as the container instead of the viewport.
+
+* Is there any reason you'd want to use `translate()` instead of *absolute positioning*, or vice-versa? And why?
+->  translate() is a value of CSS transform. Changing transform or opacity does not trigger browser reflow or repaint, only compositions,           whereas changing the absolute positioning triggers reflow.
+    transform causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. Hence translate() is more efficient and will result in shorter paint times for smoother animations.
+    When using translate(), the element still takes up its original space (sort of like position: relative), unlike in changing the absolute positioning.
+
+* What does ```* { box-sizing: border-box; }``` do? What are its advantages?
+->  By default, elements have box-sizing: content-box applied, and only the content size is being accounted for.
+    box-sizing: border-box changes how the width and height of elements are being calculated, border and padding are also being included in the calculation.
+    The height of an element is now calculated by the content's height + vertical padding + vertical border width.
+    The width of an element is now calculated by the content's width + horizontal padding + horizontal borderwidth.
+
